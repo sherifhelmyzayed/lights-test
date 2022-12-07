@@ -63,11 +63,10 @@ function VideoMaterial() {
 const MovingSpot = () => {
   const light = useRef<SpotLightType>(null!);
   const viewport = useThree((state) => state.viewport);
-  const vec = new Vector3();
 
   useFrame((state) => {
     light.current.target.position.lerp(
-      vec.set((state.mouse.x * viewport.width) / 2,
+      new Vector3((state.mouse.x * viewport.width) / 2,
         (state.mouse.y * viewport.height) / 2,
         -(state.mouse.y * viewport.height) / 2),
       0.5
